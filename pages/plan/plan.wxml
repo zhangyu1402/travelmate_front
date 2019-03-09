@@ -1,0 +1,21 @@
+<block wx:for="{{todolist}}">
+  <view class="weui-form-preview__hd">
+    <view class="weui-form-preview__item">
+      <!-- <view class="weui-form-preview__label">{{item.name}}</view> -->
+      <van-card centered="false" price="{{item.price}}" categorie="{{item.categories[0].title}}" rating="{{item.rating}}" desc="review:{{item.review_count}} " title="{{item.name}}" thumb="{{item.image_url}}" url="{{item.url}}">
+        <view slot="footer">
+          <van-button wx:if="{{!item.liked}}" bindtap='like' size="small" data-id="{{item.id}}">like</van-button>
+          <van-button wx:if="{{item.liked}}" bindtap='unlike' size="small" data-id="{{item.id}}">unlike</van-button>
+          <van-button bind:click="toggleActionSheet3" size="small" wx:if="{{item.inTodoList}}" data-id="{{item.id}}"> add</van-button>
+          <van-action-sheet show="{{ show3 }}" title="choose a date" bind:close="toggleActionSheet3">
+            <view class="content">
+              <van-datetime-picker type="datetime" data-type="datetime" value="{{ currentDate }}" min-date="{{ minDate }}" max-date="{{ maxDate }}" bind:input="onChange" bind:confirm="onConfirm" />
+            </view>
+          </van-action-sheet>
+          <van-button wx:if="{{item.inTodoList}}" bindtap='d_from_list' size="small" data-id="{{item.id}}">delete</van-button>
+        </view>
+      </van-card>
+    </view>
+  </view>
+
+</block>

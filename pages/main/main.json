@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "TravalMate",
+  "component": true,
+  "usingComponents": {
+    "van-card": "../../dist/card/index",
+    "van-button": "../../dist/button/index",
+    "van-datetime-picker": "../../dist/datetime-picker/index",
+
+    "van-action-sheet": "../../dist/action-sheet/index"
+
+    }
+}
